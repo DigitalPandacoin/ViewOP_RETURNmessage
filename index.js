@@ -1,4 +1,6 @@
-var http = require("http");
+var fs = require('fs');
+var http = require('http');
+var https = require('https');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -7,14 +9,22 @@ const { exec } = require('child_process');
 
 var urlencodedParser = bodyParser.urlencoded({ extended: true });
 
+   https.createServer({
+     key: fs.readFileSync('encryption/key.pem'),
+     cert: fs.readFileSync('encryption/cert.pem')
+   }, app).listen(8083, function () {
+     var port1 = server.address().port;
+    require('dns').lookup(require('os').hostname(), function (err, add, fam) {
+      console.log('HTTPS running on http://%s:8083', add);
+  })
+   });
 
-// Running Server Details.
-var server = app.listen(8082, function () {
-  var host = server.address().address
-  var port = server.address().port
-  console.log("Example app listening at %s:%s Port", host, port)
-});
-
+   var server = app.listen(8082, function () {
+   var port = server.address().port;
+  require('dns').lookup(require('os').hostname(), function (err, add, fam) {
+  console.log('HTTP running on http://%s:8082', add);
+  })
+   });
 
 app.get('/', function (req, res) {
   var html='';

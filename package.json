@@ -1,0 +1,25 @@
+{
+  "name": "viewop_returnmessages",
+  "version": "0.1.0",
+  "description": "View OP_Return messages on the blockchain",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "hex2ascii": "0.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justthedoctor/ViewOP_RETURNmessage.git"
+  },
+  "author": "JustTheDoctor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justthedoctor/ViewOP_RETURNmessage/issues"
+  },
+  "homepage": "https://github.com/justthedoctor/ViewOP_RETURNmessage#readme"
+}
